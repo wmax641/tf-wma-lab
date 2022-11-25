@@ -9,7 +9,7 @@ Initialise Terraform for the first time
 terraform init
 ```
 
-Make your own changes to the code
+Make your own changes to the code. You must change the `base_name` variable in `variables.tf`
 
 Optionally validate code and fix formatting (fmtfix, validate)
 
