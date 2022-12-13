@@ -35,9 +35,22 @@ If you can't install GNU Make, you can manually run the terraform commands by co
 
 ### Tasks
 
-1. Make sure project can be deployed via Terraform in the method described above. Remember to change the `project_name` variable to a sensible hostname-like string. 
+1. Make sure project can at least be partially deployed via Terraform in the method described above. Remember to change the `project_name` variable to a sensible hostname-like string. 
 
-2. Remove hardcoded references in the `resource "aws_s3_object"` block to the variable `var.project_name`. Instead reference the bucket_name attribute of `resource "aws_s3_bucket" "my_bucket". 
+There's a good chance that this project will not build completely the first time with the below error. 
+```
+Error: uploading object to S3 bucket (my_project_name): NoSuchBucket: The specified bucket does not exist
+```
+
+In that case, run `make plan` and `make apply` again.
+
+Observe results in AWS S3 console
+
+Destroy the resources via `make destroy`. Similar to above, may need to run this twice.
+
+2. Remove hardcoded references in the `resource "aws_s3_object"` block to the variable `var.project_name`. Instead reference the bucket_name attribute of `resource "aws_s3_bucket" "my_bucket"`
+
+Doing so will allow Terraform to know that it needs to create the bucket and make sure it exists first, before referencing it.
 
 3. Using the commented code in `main.tf`, deploy the other .csv files into the same S3 bucket
 
