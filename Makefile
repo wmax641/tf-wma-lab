@@ -1,10 +1,4 @@
-auth:
-	corectl id aws  --app pit
-
-fmtchk:
-	terraform fmt -write=false -diff=true -check=true
-
-fmtfix:
+fmt:
 	terraform fmt -write=true
 
 validate:
