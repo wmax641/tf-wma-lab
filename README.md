@@ -35,7 +35,7 @@ If you can't install GNU Make, you can manually run the terraform commands by co
 
 ### Tasks
 
-1. Make sure project can be deployed via Terraform in the method described above
+1. Make sure project can be deployed via Terraform in the method described above. Remember to change the `project_name` variable to a sensible hostname-like string. 
 
 2. Remove hardcoded references in the `resource "aws_s3_object"` block to the variable `var.project_name`. Instead reference the bucket_name attribute of `resource "aws_s3_bucket" "my_bucket". 
 
