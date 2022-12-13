@@ -15,6 +15,6 @@ terraform {
 
 variable "project_name" {
   description = "Common displayname to identify objects related to this project"
-  default     = "<CHANGE ME>"
+  default     = "<CHANGE-ME!!>"
 }
 
