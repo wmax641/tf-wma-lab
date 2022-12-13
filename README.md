@@ -13,7 +13,7 @@ Make your own changes to the code. You must change the `project_name` variable i
 
 Have AWS appropriate creds to target account in ~/.aws/credentials
 
-Then build (plan + apply)
+Then build:
 
 ```
 make fmt #(optional)
